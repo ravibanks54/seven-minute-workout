@@ -39,9 +39,9 @@ export const WorkoutScreen: React.FC<WorkoutScreenProps> = ({ exercises, onCompl
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-6">
       <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full">
         <img 
-          src={currentExercise.image} 
-          alt={currentExercise.name} 
-          className="w-full h-48 object-cover rounded-lg mb-4"
+          src={isBreak ? exercises[currentExerciseIndex + 1]?.image : currentExercise.image} 
+          alt={isBreak ? exercises[currentExerciseIndex + 1]?.name : currentExercise.name} 
+          className="w-full h-32 object-contain rounded-lg mb-4"
         />
 
         <h2 className="text-2xl font-bold mb-4 text-center">
@@ -49,7 +49,15 @@ export const WorkoutScreen: React.FC<WorkoutScreenProps> = ({ exercises, onCompl
         </h2>
         
         <p className="text-gray-600 mb-6 text-center">
-          {isBreak ? "Get ready for the next exercise" : currentExercise.description}
+          {isBreak ? (
+            <>
+              Get ready for the next exercise
+              <br />
+              <span className="font-semibold">Next Up: {exercises[currentExerciseIndex + 1]?.name}</span>
+            </>
+          ) : (
+            currentExercise.description
+          )}
         </p>
 
         <div className="mb-6">
