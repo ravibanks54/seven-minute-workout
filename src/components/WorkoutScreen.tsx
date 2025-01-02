@@ -15,7 +15,12 @@ export const WorkoutScreen: React.FC<WorkoutScreenProps> = ({ exercises, onCompl
 
   const currentExercise = exercises[currentExerciseIndex];
 
+  const audioRef = React.useRef<HTMLAudioElement | null>(null);
+
   const handleTimerComplete = () => {
+    if (audioRef.current) {
+      audioRef.current.play();
+    }
     if (isBreak) {
       // After break, move to next exercise
       if (currentExerciseIndex === exercises.length - 1) {
@@ -81,6 +86,8 @@ export const WorkoutScreen: React.FC<WorkoutScreenProps> = ({ exercises, onCompl
             />
           </div>
         </div>
+
+        <audio ref={audioRef} src="/assets/sounds/timer-end.mp3" preload="auto" />
       </div>
     </div>
   );
