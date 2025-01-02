@@ -38,6 +38,12 @@ export const WorkoutScreen: React.FC<WorkoutScreenProps> = ({ exercises, onCompl
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-6">
       <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full">
+        <img 
+          src={currentExercise.image} 
+          alt={currentExercise.name} 
+          className="w-full h-48 object-cover rounded-lg mb-4"
+        />
+
         <h2 className="text-2xl font-bold mb-4 text-center">
           {isBreak ? "Break Time!" : currentExercise.name}
         </h2>
@@ -87,7 +93,7 @@ export const WorkoutScreen: React.FC<WorkoutScreenProps> = ({ exercises, onCompl
           </div>
         </div>
 
-        <audio ref={audioRef} src="/assets/sounds/timer-end.mp3" preload="auto" />
+        <audio ref={audioRef} src="/src/assets/sounds/timer-end.mp3" preload="auto" />
       </div>
     </div>
   );

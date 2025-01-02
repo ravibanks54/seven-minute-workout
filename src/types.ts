@@ -3,6 +3,7 @@ export interface Exercise {
   description: string;
   duration: number;
   break: number;
+  image: string;
 }
 
 export interface WorkoutSession {
