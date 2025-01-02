@@ -26,7 +26,7 @@ export const WorkoutScreen: React.FC<WorkoutScreenProps> = ({ exercises, onCompl
       if (currentExerciseIndex === exercises.length - 1) {
         onComplete();
       } else {
-        setCurrentExerciseIndex(prev => prev + 1);
+        setCurrentExerciseIndex(currentExerciseIndex + 1);
         setIsBreak(false);
       }
     } else {
