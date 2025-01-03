@@ -101,7 +101,7 @@ export const WorkoutScreen: React.FC<WorkoutScreenProps> = ({ exercises, onCompl
           </div>
         </div>
 
-        <audio ref={audioRef} src="/src/assets/sounds/timer-end.mp3" preload="auto" />
+        <audio ref={audioRef} src="/assets/sounds/timer-end.mp3" preload="auto" />
       </div>
     </div>
   );
