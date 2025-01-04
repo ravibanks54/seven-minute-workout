@@ -34,12 +34,15 @@ function App() {
   }
 
   if (showCongrats) {
+    const today = new Date().toLocaleDateString();
+
     return (
       <>
         <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
           <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full text-center">
             <Trophy className="w-16 h-16 text-yellow-400 mx-auto mb-4" />
             <h1 className="text-3xl font-bold mb-4">Congratulations!</h1>
+            <p className="text-2xl font-semibold text-gray-800 mb-4">{today}</p>
             <p className="text-gray-600 mb-6">
               You've completed your workout for today! Keep up the great work!
             </p>
