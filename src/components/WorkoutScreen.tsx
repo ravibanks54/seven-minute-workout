@@ -23,21 +23,21 @@ export const WorkoutScreen: React.FC<WorkoutScreenProps> = ({ exercises, onCompl
     }
     if (isBreak) {
       // After break, move to next exercise
-      if (currentExerciseIndex === exercises.length - 1) {
-        onComplete();
-      } else {
-        setCurrentExerciseIndex(currentExerciseIndex + 1);
-        setIsBreak(false);
-      }
+      setCurrentExerciseIndex(currentExerciseIndex + 1);
+      setIsBreak(false);
     } else {
       console.log("Exercise complete");
       // After exercise, start break
-      setIsBreak(true);
-      // Announce the next exercise using Web Speech API
-      const nextExercise = exercises[currentExerciseIndex + 1];
-      if (nextExercise) {
-        const utterance = new SpeechSynthesisUtterance(`Next up: ${nextExercise.name}`);
-        window.speechSynthesis.speak(utterance);
+      if (currentExerciseIndex === exercises.length - 1) {
+        onComplete();
+      } else {
+        setIsBreak(true);
+        // Announce the next exercise using Web Speech API
+        const nextExercise = exercises[currentExerciseIndex + 1];
+        if (nextExercise) {
+          const utterance = new SpeechSynthesisUtterance(`Next up: ${nextExercise.name}`);
+          window.speechSynthesis.speak(utterance);
+        }
       }
     }
   };

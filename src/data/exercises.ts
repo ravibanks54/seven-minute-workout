@@ -87,6 +87,6 @@ export const exercises: Exercise[] = [
     description: "Core exercise holding a side plank position",
     duration: exerciseDuration,
     break: breakDuration,
-    image: "/src/assets/images/exercise_12.jpg"
+    image: "/assets/images/exercise_12.jpg"
   }
 ];
